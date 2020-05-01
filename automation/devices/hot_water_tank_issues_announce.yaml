@@ -1,0 +1,12 @@
+alias: devices hot water tank issues announce
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: sensor.hotwatertank
+  to: Violated
+action:
+- service: script.speaktext
+  data:
+    title: Hot Water Tank has issues
+    message: The Hot Water tank currently has issues.  If you want hot water you should have a look at it

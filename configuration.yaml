@@ -1,19 +1,8 @@
 homeassistant:
-#  auth_providers:
-#    - type: homeassistant
-#     - type: trusted_networks
-#      trusted_networks:
-#        - 127.0.0.1
-#        - ::1
-#        - 192.168.0.0/24
   customize: !include customize.yaml
       
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-#http:
-#   base_url: https://ha.alishandoug.com
 
 # Text to speech
 tts:
@@ -22,7 +11,6 @@ tts:
 group: !include groups.yaml
 automation: !include automations.yaml
 automation old: !include_dir_list automation/
-#script: !include scripts.yaml
 script: !include_dir_merge_named scripts/
 scene: !include scenes.yaml
 
@@ -51,18 +39,6 @@ sensor:
         friendly_name: 'Moon'
         value_template: '{{ states.sensor.moon.state }}'
         entity_picture_template: /local/moon_phases/{{ states.sensor.moon.state }}.png
-#  - platform: template
-#    sensors:
-#      thermostat_setpoint:
-#        entity_id: climate.hallway_thermostat
-#        friendly_name: 'Thermostat Setpoint'
-#        value_template: '{{ state_attr("climate.hallway_thermostat", "temperature") }}'
-#  - platform: template
-#    sensors:
-#      thermostat_humidity:
-#        entity_id: climate.hallway_thermostat
-#        friendly_name: 'Humidity'
-#        value_template: '{{ state_attr("climate.hallway_thermostat", "current_humidity") }}'
   - platform: darksky
     api_key: !secret DARKSKY_API_KEY
     units: ca
@@ -87,24 +63,6 @@ sensor:
       - wind_speed
       - wind_bearing
       - pressure
-          
-#badnest:
-#  user_id: 12387017
-#  access_token: !secret nest_access_token
-#  region: ca
-
-#climate:
-#  - platform: badnest
-#    scan_interval: 10
-
-
-#nest:
-#  client_id: !secret nest_client_id
-#  client_secret: !secret nest_client_secret
-
-#climate:
-#  - platform: badnest
-#    scan_interval: 10
       
 elkm1:
   host: elk://192.168.1.82
@@ -212,23 +170,9 @@ media_player:
     name: Russound
   - platform: mpd
     host: 127.0.0.1
-#  - platform: samsungtv
-#    host: 192.168.1.81
-#    port: 8001
-#    name: LivingRoomSamsungTV
-#    mac: f8:3f:51:34:ec:96
   - platform: onkyo
     host: 192.168.1.80
     name: LivingRoomReceiver
-#  - platform: webostv
-#    host: 192.168.1.85
-#    name: Basement TV
-#    timeout: 5
-#    filename: .webostv.conf
-#    turn_on_action:
-#      service: wake_on_lan.send_magic_packet
-#      data:
-#        mac: "F0:86:20:02:7D:61"
   - platform: blackbird2
     host: 192.168.1.86
     ir_control: false
@@ -267,8 +211,6 @@ media_player:
       8:
         name: DrivewayCamera
 
-#blackbird2:
-        
 camera:
   - platform: onvif
     host: 192.168.1.93
@@ -288,14 +230,7 @@ camera:
     profile: 1
     name: garage
     password: !secret camera_password
-#  - platform: doorbird
-  
-#doorbird:
-#  devices:
-#    - host: 192.168.1.95
-#      username: !secret doorbird_username
-#      password: !secret doorbird_password
-#      token: !secret doorbird_token
+
 
 timer:
   washer:
@@ -389,8 +324,3 @@ google_assistant: !include google_assistant.yaml
 keyboard_remote:
   device_name: 'flirc.tv flirc Keyboard'
   type: 'key_down'
-  
-#ourgroceries:
-#  username: !secret our_groceries_username
-#  password: !secret our_groceries_password
-

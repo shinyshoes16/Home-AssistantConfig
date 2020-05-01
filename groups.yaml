@@ -16,6 +16,7 @@ respect_sleeping:
     - automation.laundry_dryer_running_for_20_minutes
     - automation.laundry_dryer_timer_elapsed
     - automation.laundry_washing_machine_timer_elapsed
+    - automation.devices_hot_water_tank_issues_announce
     
 exterior_lights_for_entry:
   name: exterior lights for entry
