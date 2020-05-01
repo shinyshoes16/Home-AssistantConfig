@@ -1,0 +1,23 @@
+alias: people doug arrived home
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: person.doug
+  to: home
+action:
+- service: script.disarmalarm
+- service: script.debugout
+  data: 
+    name: "people doug arrived home"
+    message: "was triggered"
+- service: notify.mobile_app_hd1905
+  data:
+    message: "Welcome home, open garage?"
+    target: "dougs7T"
+    data:
+      tag: doug-arrived-home-garage
+      actions:
+        - action: open_dougs_garage_door
+          title: Open door
+          icon: mdi:garage

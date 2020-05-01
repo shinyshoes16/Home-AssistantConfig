@@ -1,0 +1,7 @@
+enable_driveway_horn:
+  alias: Disable Driveway Horn
+  sequence:
+  - service: timer.cancel
+    entity_id: timer.driveway_horn_suppressed
+  - service: timer.cancel
+    entity_id: timer.driveway_horn_suppressed_manual

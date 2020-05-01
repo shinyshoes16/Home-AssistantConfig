@@ -1,0 +1,29 @@
+alias: door openings east garage door notify
+#hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: sensor.east_garage_overhead_dr
+  to: Violated
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: alarm_control_panel.area_001
+        state: armed_away
+      - condition: state
+        entity_id: alarm_control_panel.area_001
+        state: pending
+      - condition: state
+        entity_id: alarm_control_panel.area_001
+        state: triggered
+action:
+- service: notify.dougemail
+  data_template:
+    title: East Garage Door Opened
+    message: East Garage Door Opened at {{now().strftime("%I:%M:%S-%Y/%m/%d")}} 

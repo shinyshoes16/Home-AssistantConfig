@@ -1,0 +1,12 @@
+alias: door openings deck door
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: sensor.deck_door
+  to: Violated
+action:
+- service: notify.dougemail
+  data:
+    title: Deck Door Opened
+    message: Deck Door Opened at {{now().strftime("%I:%M:%S-%Y/%m/%d")}} 

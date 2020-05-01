@@ -1,0 +1,108 @@
+alias: TestTrigger
+# hide_entity: true
+initial_state: true
+trigger:
+  platform: state
+  entity_id: input_boolean.triggerstate
+  to: 'on'
+action: 
+  - service: notify.dougpush
+    data:
+      message: "Test Trigger was turned on"
+      data:
+        actions:
+          - action: "arm_alarm_push"
+            title: Arm Alarm
+
+
+
+#- id: '12345'
+#  alias: TestTrigger
+#  # hide_entity: true
+#  initial_state: true
+#  trigger:
+#    platform: state
+#    entity_id: input_boolean.triggerstate
+#    to: 'on'
+#  action: 
+#    - service: script.debugout
+#      data: 
+#        name: "DougTest2"
+#        message: "This is my test 2."
+
+#- id: '12345'
+#  alias: test announcmemnts with micorosft
+#  # hide_entity: true
+#  trigger:
+#  - entity_id: input_boolean.triggerstate
+#    platform: state
+#    to: 'on'
+#  condition: []
+#  action:
+#  - service: script.speaktext3
+#    data:
+#      message: Thank god this finally works
+
+        
+#- id: '123456'
+#  alias: localmediavol
+#  # hide_entity: true
+#  initial_state: true
+#  trigger:
+#    platform: state
+#    entity_id: media_player.mpd
+#  action:
+#    service: input_slider.select_value
+#    data_template:
+#      entity_id: input_slider.local_media_volume
+#      value: >
+#        {{ states.media_player.mpd.attributes.volume_level }} 
+
+#- id: '1234567' 
+#  alias: localmediavolset
+#  # hide_entity: true
+#  initial_state: true
+#  trigger:
+#    platform: state
+#    entity_id: input_slider.local_media_volume
+#  action:
+#    - service: media_player.volume_set
+#      data_template:
+#        entity_id: media_player.mpd
+#        volume_level: '{{ trigger.to_state.state/100 }}'
+      
+#- id: 'rule 180'
+#  alias: Rule 180 Dougs Location Update
+#  # hide_entity: true
+#  trigger:
+#    platform: webhook
+#    webhook_id: DougsPhoneUpdate
+#  action:
+#  
+
+#- id: '12345'
+#  alias: test announcmemnts with micorosft
+#  # hide_entity: true
+#  trigger:
+#  - entity_id: input_boolean.triggerstate
+#    platform: state
+#    to: 'on'
+#  condition: []
+#  action:
+#  - service: script.speaktext2
+#    data:
+#      message: the washing machine has completed its cycle
+
+      
+#- id: '1544057495602'
+#  alias: Rule 150 announce something when front door opened
+#  # hide_entity: true
+#  trigger:
+#  - entity_id: sensor.front_door
+#    platform: state
+#    to: Violated
+#  condition: []
+#  action:
+#  - service: script.speaktext
+#    data:
+#      message: Merry Christmas and a Happy New Year!

@@ -1,0 +1,165 @@
+  project_id: hassassistant-33793
+  service_account: !include SERVICE_ACCOUNT.JSON
+  report_state: true
+#  exposed_domains:
+#    - switch
+#    - light
+#    - camera
+#    - group
+#    - media_player
+#    - climate
+  entity_config:
+    light.baroverheadlight:
+      name: Bar Overhead Light
+      aliases:
+        - Bar_Lights
+        - Basement_Lights
+      room: Bar
+    light.barpotlights:
+      name: Bar Pot Lights
+      aliases:
+        - Bar_Lights
+        - Basement_Lights
+      room: Bar
+    light.basementbathroomlights:
+      name: Basement Bathrooom Lights
+      aliases:
+        - Basement_Lights
+      room: Basement Bathroom
+    light.basementcoldstoragelights:
+      name: Basement Cold Storage Lights
+      aliases:
+        - Basement_Lights
+        - Storage_Lights
+        - Basement_Storage_Lights
+      room: Basement Cold Storage
+    light.understairstoragelight:
+      name: Basement Under Stair Storage Lights
+      aliases:
+        - Basement_Lights
+        - Storage_Lights
+        - Basement_Storage_Lights
+      room: Basement Under-Stair Storage
+    light.basementhallwaylights:
+      name: Basement Hallway Lights
+      aliases:
+        - Basement_Lights
+        - Hallway_Lights
+      room: Basement Hallway
+    light.dartboardlight:
+      name: Dart_Board_Light
+      aliases: 
+        - Basement_Lights
+      room: Games Room
+    light.gamesroomlights:
+      name: Games Room Lights
+      aliases:
+        - Basement_Lights
+      room: Games Room
+    light.garageeastexteriorlight:
+      name: Garage East Exterior Lights
+      aliases:
+        - Garage_Outside_Lights
+        - Garage_East_Light
+        - Garage_Front_Light
+        - Front_Garage_Light
+        - Sidewalk_Light
+      room: Outside
+    light.garagewestexteriorlight:
+      name: Garage West Exterior Lights
+      aliases:
+        - Garage_Outside_Lights
+        - Garage_West_Light
+        - Garage_Back_Light
+        - Back_Garage_Light
+        - Trailer_Light
+      room: Outside
+    light.livingroomlight:
+      name: Living Room Light
+#    light.subwooferplug:
+#      name: Subwoofer
+#    light.livingroomtabletopswitch:
+#      name: TableTop Switch
+    light.mediaroomcenterlight:
+      name: Media Room Center Lights
+      aliases:
+        - Media_Room_Lights
+        - Basement_Lights
+    light.mediaroompotlights:
+      name: Media Room Pot Lights
+      aliases:
+        - Media_Room_Lights
+        - Basement_Lights
+    light.nwbasementbedroom:
+      name: North West Basement Bedroom Lights
+      aliases:
+        - Christines_Room_Lights
+        - Basement_Lights
+        - Exercise_Room_Lights
+        - Gym_Lights
+        - Fitness_Room_Lights
+      room: Christine's Room
+    light.swbasementbedroomlights: 
+      name: South West Basement Bedroom Lights
+      aliases:
+        - Pauls_Room_Lights
+        - Basement_Lights
+        - Spare_Rooom_Lights
+        - Guest_Room_Lights
+      room: Paul's Room
+    light.officelight:
+      name: Office Lights
+      aliases:
+        - Basement_Lights
+    light.patiolights:
+      name: Patio Lights
+      aliases:
+        - Exterior_Lights
+        - Outside_Lights
+      room: Outside
+    light.porchlights:
+      name: Porch Lights
+      aliases:
+        - Outside_Lights
+        - Entry_Lights
+        - Front_Lights
+      room: Outside
+    light.shopexteriiorlights:
+      name: Shop Exterior Lights
+      aliases:
+        - Shop_Outside_Lights
+        - Outside_Lights
+        - Entry_Lights
+        - Shop_Lights
+      room: Outside
+    light.shopexteriorplug:
+      name: Shop Exterior Plugs
+      aliases: 
+        - Shop Plugs
+        - Shop_Outside_Plugs
+        - Fence_Lights
+        - Christmas_Lights
+        - Outside_Lights
+      room: Outside
+    light.shopinteriorlights:
+      name: Shop Interior Lights
+      aliases:
+        - Shop_Lights
+        - Shop_Overhead_Lights
+      room: Shop
+    light.soffitlights:
+      name: Soffit Lights
+      aliases:
+        - Soffit_Plugs
+        - Christmas_Lights
+      room: Outside
+    light.utilityroomlight:
+      name: Utility Room Lights
+      aliases: 
+        - Mechanical Room Lights
+        - Furnace Room Lights
+        - Basement Lights
+      room: Utility Room
+     
+#  group.all_automations:
+#    expose: false 

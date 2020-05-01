@@ -1,0 +1,18 @@
+alias: audio_visual subwoofer switch on at 10 if reciever on
+initial_state: true
+trigger: 
+  platform: time
+  at: '10:00:00'
+condition:
+  condition: and
+  conditions:
+  - condition: state
+    entity_id: light.livingroomsubwooferplug
+    state: "off"
+  - condition: state
+    entity_id: media_player.livingroomreceiver
+    state: "on"
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.livingroomsubwooferplug

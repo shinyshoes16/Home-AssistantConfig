@@ -1,0 +1,18 @@
+alias: laundry dryer running for 20 minutes
+# hide_entity: true
+initial_state: true
+trigger:
+  platform: state
+  entity_id: sensor.dryer
+  to: 'Violated'
+  for:
+    minutes: 20
+action: 
+  - service: script.debugout
+    data: 
+      name: "laundry dryer running for 20 minutes"
+      message: "was triggered" 
+  - service: script.speaktext
+    data:
+      message: "The dryer has been running for 20 minutes.  Heat sensitive items need to be removed."
+  

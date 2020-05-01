@@ -1,0 +1,12 @@
+alias: reset camera trigger
+initial_state: true
+trigger:
+  platform: state
+  entity_id: switch.camera_trigger
+  to: "on"
+  for:
+    seconds: 2
+action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.camera_trigger

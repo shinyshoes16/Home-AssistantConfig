@@ -1,0 +1,15 @@
+# Set Russound Zone Volume to Current Volume if ON.
+alias: 'Russound ON Connection Hack'
+initial_state: true
+trigger:
+  platform: time_pattern
+  minutes: "/3"
+condition:
+  - condition: state
+    entity_id: media_player.main_bathroom
+    state: 'on'
+action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.main_bathroom
+      volume_level: "{{ states.media_player.main_bathroom.attributes.volume_level }}"

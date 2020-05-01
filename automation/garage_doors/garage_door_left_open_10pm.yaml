@@ -1,0 +1,24 @@
+alias: garage door left open 10pm
+initial_state: true
+trigger: 
+  platform: time
+  at: '22:00:00'
+condition:
+  condition: or
+  conditions:
+  - condition: state
+    entity_id: sensor.east_garage_door
+    state: Violated
+  - condition: state
+    entity_id: sensor.west_garage_dr
+    state: Violated
+  - condition: state
+    entity_id: sensor.east_garage_overhead_dr
+    state: Violated
+  - condition: state
+    entity_id: sensor.west_garage_overhead_door
+    state: Violated
+action:
+  - service: script.speaktext
+    data:
+      message: "One of the doors in the garage has been left open. Close all Garage Doors before bed."

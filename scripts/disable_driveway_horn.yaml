@@ -1,0 +1,8 @@
+disable_driveway_horn:
+  alias: Disable Driveway Horn
+  sequence:
+  - service: timer.start
+    data_template:
+      entity_id: timer.driveway_horn_suppressed_manual
+      duration: "{{ states('input_select.driveway_horn_suppression_time') }}"
+    

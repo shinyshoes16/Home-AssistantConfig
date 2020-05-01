@@ -1,0 +1,9 @@
+alias: system respect sleeping on
+initial_state: true
+trigger: 
+  platform: time
+  at: '22:30:00'
+action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.respect_sleeping

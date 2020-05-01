@@ -1,0 +1,196 @@
+#
+# Main arguments, all optional
+#
+title: Media Control
+widget_dimensions: [120, 110]
+widget_margins: [8, 8]
+columns: 6
+
+reload:
+  widget_type: reload
+  title: Reload
+  icon_active: mdi-refresh
+  icon_inactive: mdi-refresh
+  
+global_parameters:
+  use_comma: 0
+  precision: 1
+  use_hass_icon: 1
+  
+living_room_power:
+  widget_type: switch
+  entity: input_boolean.living_room_media_power
+  title: Living Room
+  
+computer_label:
+  widget_type: switch
+  title: Computer
+  
+media_room_power:
+  widget_type: switch
+  entity: input_boolean.media_room_media_power
+  title: Media Room
+  
+gym_power:
+  widget_type: switch
+  entity: input_boolean.gym_media_power
+  title: Gym
+  
+pvr_to_living_room:
+  widget_type: script
+  entity: script.pvr_to_living_room
+  title: PVR to Living Room
+  icon_on: mdi-vhs
+  icon_off: mdi-vhs
+  
+computer_to_living_room:
+  widget_type: script
+  entity: script.computer_to_living_room
+  title: Computer to Living Room
+  icon_on: mdi-desktop-classic
+  icon_off: mdi-desktop-classic
+  
+satellite_to_living_room:
+  widget_type: script
+  entity: script.satellite_to_living_room
+  title: Satellite to Living Room
+  icon_on: mdi-satellite-uplink
+  icon_off: mdi-satellite-uplink
+  
+chromecast_to_living_room:
+  widget_type: script
+  entity: script.chromecast_to_living_room
+  title: ChromeCast to Living Room
+  icon_on: mdi-google-chrome
+  icon_off: mdi-google-chrome
+  
+driveway_camera_to_living_room:
+  widget_type: script
+  entity: script.driveway_camera_to_living_room
+  title: Driveway Camera to Living Room
+  icon_on: mdi-cctv
+  icon_off: mdi-cctv
+  
+pvr_to_computer:
+  widget_type: script
+  entity: script.pvr_to_computer
+  title: PVR to Computer
+  icon_on: mdi-vhs
+  icon_off: mdi-vhs
+  
+computer_to_computer:
+  widget_type: script
+  entity: script.computer_to_computer
+  title: Computer to Computer
+  icon_on: mdi-desktop-classic
+  icon_off: mdi-desktop-classic
+  
+satellite_to_computer:
+  widget_type: script
+  entity: script.satellite_to_computer
+  title: Satellite to Computer
+  icon_on: mdi-satellite-uplink
+  icon_off: mdi-satellite-uplink
+  
+chromecast_to_computer:
+  widget_type: script
+  entity: script.chromecast_to_computer
+  title: ChromeCast to Computer
+  icon_on: mdi-google-chrome
+  icon_off: mdi-google-chrome
+  
+driveway_camera_to_computer:
+  widget_type: script
+  entity: script.driveway_camera_to_computer
+  title: Driveway Camera to Computer
+  icon_on: mdi-cctv
+  icon_off: mdi-cctv
+  
+pvr_to_media_room:
+  widget_type: script
+  entity: script.pvr_to_media_room
+  title: PVR to Media Room
+  icon_on: mdi-vhs
+  icon_off: mdi-vhs
+  
+computer_to_media_room:
+  widget_type: script
+  entity: script.computer_to_media_room
+  title: Computer to Media Room
+  icon_on: mdi-desktop-classic
+  icon_off: mdi-desktop-classic
+  
+satellite_to_media_room:
+  widget_type: script
+  entity: script.satellite_to_media_room
+  title: Satellite to Media Room
+  icon_on: mdi-satellite-uplink
+  icon_off: mdi-satellite-uplink
+  
+chromecast_to_media_room:
+  widget_type: script
+  entity: script.chromecast_to_media_room
+  title: ChromeCast to Media Room
+  icon_on: mdi-google-chrome
+  icon_off: mdi-google-chrome
+  
+driveway_camera_to_media_room:
+  widget_type: script
+  entity: script.driveway_camera_to_media_room
+  title: Driveway Camera to Media Room
+  icon_on: mdi-cctv
+  icon_off: mdi-cctv
+  
+pvr_to_gym:
+  widget_type: script
+  entity: script.pvr_to_gym
+  title: PVR to  Gym
+  icon_on: mdi-vhs
+  icon_off: mdi-vhs
+  
+computer_to_gym:
+  widget_type: script
+  entity: script.computer_to_gym
+  title: Computer to Gym
+  icon_on: mdi-desktop-classic
+  icon_off: mdi-desktop-classic
+  
+satellite_to_gym:
+  widget_type: script
+  entity: script.satellite_to_gym
+  title: Satellite to Gym
+  icon_on: mdi-satellite-uplink
+  icon_off: mdi-satellite-uplink
+  
+chromecast_to_gym:
+  widget_type: script
+  entity: script.chromecast_to_gym
+  title: ChromeCast to Gym
+  icon_on: mdi-google-chrome
+  icon_off: mdi-google-chrome
+  
+driveway_camera_to_gym:
+  widget_type: script
+  entity: script.driveway_camera_to_gym
+  title: Driveway Camera to Gym
+  icon_on: mdi-cctv
+  icon_off: mdi-cctv
+
+load_kitchen:
+    widget_type: navigate
+    title: Back to Kitchen Control
+    icon_active: mdi-fridge-outline
+    icon_inactive: mdi-fridge-outline
+    url: /kitchen
+    
+
+layout:
+  - living_room_power, pvr_to_living_room, computer_to_living_room, satellite_to_living_room, chromecast_to_living_room, driveway_camera_to_living_room
+  - computer_label, pvr_to_computer, computer_to_computer, satellite_to_computer, chromecast_to_computer, driveway_camera_to_computer
+  - media_room_power, pvr_to_media_room, computer_to_media_room, satellite_to_media_room, chromecast_to_media_room, driveway_camera_to_media_room
+  - gym_power, pvr_to_gym, computer_to_gym, satellite_to_gym, chromecast_to_gym, driveway_camera_to_gym
+  - reload, load_kitchen
+  
+  
+  
+  

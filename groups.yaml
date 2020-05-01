@@ -1,0 +1,86 @@
+family:
+  name: Family
+  entities: 
+    - person.doug
+    - person.alisha
+#    - device_tracker.google_maps_102903846854077092028
+#    - device_tracker.google_maps_111315891950876531617
+#    - device_tracker.luci_alisha_s9
+#    - device_tracker.luci_dougs_s9_plus
+    
+respect_sleeping:
+  name: Respect_Sleeping
+  entities:
+    - automation.laundry_washing_machine_stopped
+    - automation.laundry_dryer_stopped
+    - automation.laundry_dryer_running_for_20_minutes
+    - automation.laundry_dryer_timer_elapsed
+    - automation.laundry_washing_machine_timer_elapsed
+    
+exterior_lights_for_entry:
+  name: exterior lights for entry
+  entities:
+    - light.porchlights
+    - light.shopexteriorlights
+    - light.garageeastexteriorlight
+    
+exterior_lights:
+  name: exterior lights
+  entities:
+    - light.porchlights
+    - light.shopexteriorlights
+    - light.garageeastexteriorlight
+    - light.garagewestexteriorlight
+    - light.patiolights
+    - light.soffitlights
+    
+christmas_lights:
+  name: christmas lights
+  entities: 
+    - light.shopexteriorplugs
+    - light.soffitlights
+    
+interior_lights:
+  name: interior lights
+  entities:
+    - light.baroverheadlight
+    - light.barpotlights
+    - light.basementbathroomlights
+    - light.basementcoldstoragelights
+    - light.basementhallwaylights
+    - light.dartboardlight
+    - light.gamesroomlights
+    - light.mechanicalroomlight
+    - light.mediaroomcenterlight
+    - light.mediaroompotlights
+    - light.nwbasementbedroomlight
+    - light.officelight
+    - light.swbasementbedroomlight
+    - light.understairstoragelights
+    
+    
+all_lights:
+  name: all lights
+  entities:
+    - light.baroverheadlight
+    - light.barpotlights
+    - light.basementbathroomlights
+    - light.basementcoldstoragelights
+    - light.basementhallwaylights
+    - light.dartboardlight
+    - light.gamesroomlights
+    - light.mechanicalroomlight
+    - light.mediaroomcenterlight
+    - light.mediaroompotlights
+    - light.nwbasementbedroomlight
+    - light.officelight
+    - light.swbasementbedroomlight
+    - light.understairstoragelights
+    - light.porchlights
+    - light.shopexteriorlights
+    - light.garageeastexteriorlight
+    - light.garagewestexteriorlight
+    - light.patiolights
+    - light.shopoverheadlight
+    - light.soffitlights
+    

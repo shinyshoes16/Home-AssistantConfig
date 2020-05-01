@@ -1,0 +1,11 @@
+alias: Alarm cancel notification timer if disarmed
+# hide_entity: true
+initial_state: true
+trigger:
+- entity_id: alarm_control_panel.area_001
+  platform: state
+  to: "disarmed"
+  from: "triggered"
+action:
+  - service: timer.cancel
+    entity_id: timer.alarm_notification_repeat

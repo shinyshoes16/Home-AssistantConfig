@@ -1,0 +1,15 @@
+alias: alarm disarmed cancel push notification
+# hide_entity: true
+initial_state: true
+trigger:
+- entity_id: alarm_control_panel.area_001
+  platform: state
+  to: disarmed
+  for: 
+    seconds: 10
+action:
+  - service: html5.dismiss
+    data:
+      tag: alarm-triggered-notification
+    
+      

@@ -1,0 +1,17 @@
+alias: door openings shop man door
+# hide_entity: true
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: sensor.shop_man_door
+    to: Violated
+action:
+  - service: notify.dougemail
+    data:
+      title: Shop Man Door Opened
+      message: Shop Man Door Opened at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}
+  - service: script.speaktext
+    data:
+      message: "The shop man door has been opened"
+      display_title: "Shop Man Door"
+      display_message: "Opened"

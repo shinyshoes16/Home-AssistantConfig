@@ -1,0 +1,17 @@
+alias: door openings shop overhead door
+# hide_entity: true
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: sensor.shop_overhead_door
+    to: Violated
+action:
+  - service: notify.dougemail
+    data:
+      title: Shop Overhead Door Opened
+      message: Shop Overhead Door Opened at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}
+  - service: script.speaktext
+    data:
+      message: "The shop overhead door has been opened"
+      display_title: "Shop overhead Door"
+      display_message: "Opened"

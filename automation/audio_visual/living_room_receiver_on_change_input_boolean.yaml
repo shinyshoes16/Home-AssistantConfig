@@ -1,0 +1,10 @@
+alias: audio_visual living room tv on change input boolean
+initial_state: true
+trigger: 
+  - entity_id: media_player.livingroomreceiver
+    platform: state
+    to: "on"
+action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.living_room_media_power

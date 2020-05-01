@@ -1,0 +1,18 @@
+alias: laundry door closed music
+# hide_entity: true
+initial_state: true
+trigger: 
+  platform: state
+  entity_id: sensor.laundry_room_dr
+condition:
+  condition: and
+  conditions:
+  - condition: time
+    after: '07:30:00'
+    before: '19:30:00'
+  - condition: state
+    entity_id: sensor.laundry_room_dr
+    state: 'Normal'
+action: 
+  - service: media_player.turn_off
+    entity_id: media_player.laundry_room

@@ -1,0 +1,9 @@
+set_kitchen_to_the_drive:
+  sequence:
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.kitchen
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.kitchen
+      source: AM/FM 2

@@ -1,0 +1,12 @@
+alias: display panels driveway sensor triggered show cameras
+#hide_entity: true
+initial_state: true
+trigger: 
+- entity_id: sensor.driveway_sensor
+  platform: state
+  to: Violated
+action:
+- service: mqtt.publish
+  data:
+    topic: home/panel
+    payload: on

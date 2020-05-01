@@ -1,0 +1,8 @@
+satellite_to_gym: 
+  alias: matrix satellite to gym
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.gym_matrix
+      source: Satellite
+  

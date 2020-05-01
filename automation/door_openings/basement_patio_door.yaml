@@ -1,0 +1,12 @@
+alias: door openings basement patio door
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: sensor.basement_patio_dr
+  to: Violated
+action:
+- service: notify.dougemail
+  data:
+    title: Basement Patio Door Opened
+    message: Basement Patio Door Opened at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}

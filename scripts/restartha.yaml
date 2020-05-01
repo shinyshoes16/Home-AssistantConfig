@@ -1,0 +1,4 @@
+restartha: 
+  alias: Restart Home Assistant
+  sequence:
+  - service: homeassistant.restart

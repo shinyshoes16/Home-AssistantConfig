@@ -1,0 +1,17 @@
+alias: laundry washing machine timer elapsed
+# hide_entity: true
+initial_state: true
+trigger: 
+  platform: event
+  event_type: timer.finished
+  event_data: 
+    entity_id: timer.washer
+action: 
+  - service: script.speaktext
+    data:
+      message: "The clothes in the washing machine have not been removed"
+  - condition: template
+    #checks to see if we should stop reminding after 15 minutes 30 seconds
+    value_template: "{{ (as_timestamp(now()) - as_timestamp(states.sensor.washingmachine.last_changed)) < 930 }}"
+  - service: timer.start
+    entity_id: timer.washer

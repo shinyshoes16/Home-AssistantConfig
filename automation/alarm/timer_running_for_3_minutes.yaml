@@ -1,0 +1,15 @@
+alias: alarm timer running for 3 minutes
+# hide_entity: true
+initial_state: true
+trigger:
+  platform: state
+  entity_id: timer.alarm
+  to: 'active'
+  for:
+    minutes: 3
+action: 
+  - service: script.speaktext
+    data:
+      message: "One minute remaining to exit before alarm is active."
+      display_title: "1 Minute"
+      display_message: "to exit until alarm active"

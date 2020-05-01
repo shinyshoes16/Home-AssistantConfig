@@ -1,0 +1,10 @@
+alias: audio_visual subwoofer off when receiver off
+initial_state: true
+trigger: 
+  - entity_id: media_player.livingroomreceiver
+    platform: state
+    to: "off"
+action:
+  - service: light.turn_off
+    data:
+      entity_id: light.livingroomsubwooferplug

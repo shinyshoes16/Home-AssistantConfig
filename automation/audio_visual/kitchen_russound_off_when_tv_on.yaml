@@ -1,0 +1,10 @@
+alias: audio_visual kitchen russound off when tv on
+initial_state: true
+trigger: 
+  - entity_id: media_player.media_player.living_room_tv
+    platform: state
+    to: "on"
+action:
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.kitchen

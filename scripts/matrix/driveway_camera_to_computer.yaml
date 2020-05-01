@@ -1,0 +1,8 @@
+driveway_camera_to_computer: 
+  alias: matrix driveway camera to computer
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.computer_matrix
+      source: DrivewayCamera
+  

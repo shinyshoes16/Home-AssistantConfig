@@ -1,0 +1,18 @@
+alias: shop door left open 10pm
+initial_state: true
+trigger: 
+  platform: time
+  at: '22:01:00'
+condition:
+  condition: or
+  conditions:
+  - condition: state
+    entity_id: sensor.shop_overhead_door
+    state: violated
+  - condition: state
+    entity_id: sensor.shop_man_door
+    state: violated
+action:
+  - service: script.speaktext
+    data:
+      message: "One of the doors in the Shop has been left open. Close all Shop Doors before bed."

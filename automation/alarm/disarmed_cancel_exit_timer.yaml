@@ -1,0 +1,17 @@
+alias: alarm disarmed cancel exit timer
+# hide_entity: true
+initial_state: true
+trigger:
+- entity_id: alarm_control_panel.area_001
+  platform: state
+  to: "disarmed"
+  from: "arming"
+action:
+  - service: timer.cancel
+    entity_id: timer.alarm
+  - service: timer.cancel
+    entity_id: timer.alarm_notification_repeat
+  - service: notify.dougemail
+    data_template:
+      title: Alarm Exit Timer Cancelled
+      message: Alarm exit timer cancelled

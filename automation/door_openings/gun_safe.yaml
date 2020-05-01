@@ -1,0 +1,12 @@
+alias: door openings gun safe
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: sensor.gun_safe
+  to: Violated
+action:
+- service: notify.dougemail
+  data:
+    title: Gun Safe Opened
+    message: Gun Safe Opened at {{now().strftime("%I:%M:%S-%Y/%m/%d")}} 

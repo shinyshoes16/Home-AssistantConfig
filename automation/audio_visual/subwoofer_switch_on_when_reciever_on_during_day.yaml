@@ -1,0 +1,16 @@
+alias: audio_visual subwoofer on when receiver on during day
+initial_state: true
+trigger: 
+  - entity_id: media_player.livingroomreceiver
+    platform: state
+    to: "on"
+condition:
+  condition: or
+  conditions:
+  - condition: time
+    after: '10:00:00'
+    before: '19:30:00'
+action:
+  - service: light.turn_on
+    data:
+      entity_id: light.livingroomsubwooferplug

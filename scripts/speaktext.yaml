@@ -1,0 +1,48 @@
+
+
+speaktext:
+  alias: SpeakText with volume
+  sequence:
+  - service: script.debugout
+    data_template: 
+      name: "Speaking:"
+      message: "{{ message }}"
+  - service: switch.turn_on
+    data:
+      entity_id: switch.russound_page
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.last_page_time
+    data_template:
+      datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"
+  - service: input_text.set_value
+    data_template:
+      entity_id: input_text.last_page
+      value: "{{ message | truncate(255) }}"
+  - delay: '00:00:02'
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.mpd
+      volume_level: >
+        {%- if now().hour <= 7 or now().hour >= 19 %}
+        0.3
+        {%- else %}
+        0.4
+        {% endif %}
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.mpd
+      media_content_id: 'local:track:Attention.wav'
+      media_content_type: music
+  - delay: '00:00:03'
+  - service: tts.google_translate_say
+    data_template:
+      message: "{{ message }}"
+      entity_id: media_player.mpd
+  - delay: '00:00:05'
+  - wait_template: "{{ is_state('media_player.mpd', 'off') }}"
+    timeout: '00:01:00'
+    continue_on_timeout: 'true'
+  - service: switch.turn_off
+    data:
+      entity_id: switch.russound_page
+      

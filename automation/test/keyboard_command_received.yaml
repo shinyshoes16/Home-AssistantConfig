@@ -1,0 +1,11 @@
+alias: find out Key codes
+trigger:
+  platform: event
+  event_type: keyboard_remote_command_received
+  event_data:
+      device_descriptor: "/dev/input/event5"
+action:
+- service: input_text.set_value
+  data_template:
+    entity_id: input_text.mykeycode
+    value: " {{ trigger.event.data.key_code }} {{ states('input_text.mykeycode') | truncate(90) }} "

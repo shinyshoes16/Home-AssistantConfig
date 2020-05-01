@@ -1,0 +1,37 @@
+alias: exterior lights on by driveway sensor after dark
+#hide_entity: true
+initial_state: true
+trigger: 
+- entity_id: sensor.driveway_sensor
+  platform: state
+  to: Violated
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: input_boolean.porchlightsonbymanual
+      state: "off"
+    - condition: state
+      entity_id: timer.driveway_horn_suppressed
+      state: idle
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: 'below_horizon'
+#        - condition: sun
+#        - platform: sun
+#          after: sunset
+#          after_offset: "-1:00:00"
+#        - condition: sun
+#          before: sunrise
+#          before_offset: "1:00:00"
+action:
+  - service: light.turn_on
+    data: 
+      entity_id: group.exterior_lights_for_entry
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.porchlightsonbyautomation
+  - service: timer.start
+    entity_id: timer.porch_lights

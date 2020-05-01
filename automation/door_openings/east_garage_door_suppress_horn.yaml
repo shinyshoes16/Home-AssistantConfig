@@ -1,0 +1,10 @@
+alias: door openings east garage door suppress horn
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: sensor.east_garage_overhead_dr
+  to: Violated
+action:
+  - service: timer.start
+    entity_id: timer.driveway_horn_suppressed

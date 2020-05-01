@@ -1,0 +1,14 @@
+alias: alarm disarmed notify Doug
+# hide_entity: true
+initial_state: true
+trigger:
+- entity_id: alarm_control_panel.area_001
+  platform: state
+  to: disarmed
+  for: 
+    seconds: 10
+action:
+- service: notify.dougemail
+  data_template:
+    title: Alarm Disarmed at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}  
+    message: Alarm Status Changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }} at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}  

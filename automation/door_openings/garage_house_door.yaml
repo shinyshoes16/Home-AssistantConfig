@@ -1,0 +1,29 @@
+alias: door openings garage house door
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: sensor.garage_house_dr
+  to: Violated
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: group.family
+      state: not_home
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: alarm_control_panel.area_001
+        state: armed_away
+      - condition: state
+        entity_id: alarm_control_panel.area_001
+        state: pending
+      - condition: state
+        entity_id: alarm_control_panel.area_001
+        state: triggered
+action:
+- service: notify.dougemail
+  data:
+    title: Garage/House Door Opened
+    message: Garage/House Door Opened at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}

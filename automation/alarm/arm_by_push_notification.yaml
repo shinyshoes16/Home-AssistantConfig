@@ -1,0 +1,11 @@
+alias: "alarm arm by push notification"
+trigger:
+  platform: event
+  event_type: html5_notification.clicked
+  event_data:
+   action: arm_alarm
+action:
+  service: alarm_control_panel.alarm_arm_away
+  data: 
+    entity_id: alarm_control_panel.area_001
+    code: !secret alarm_code

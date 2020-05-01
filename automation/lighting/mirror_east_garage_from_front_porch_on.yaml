@@ -1,0 +1,10 @@
+alias: lighting mirror east garage from front porch on
+# hide_entity: true
+initial_state: true
+trigger:
+  platform: state
+  entity_id: light.porchlights
+  to: "on"
+action: 
+  - service: light.turn_on
+    entity_id: light.garageeastexteriorlight

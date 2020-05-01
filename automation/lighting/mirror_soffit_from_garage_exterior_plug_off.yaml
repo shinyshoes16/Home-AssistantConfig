@@ -1,0 +1,10 @@
+alias: lighting mirror shop exterior plug from soffit off
+# hide_entity: true
+initial_state: true
+trigger:
+  platform: state
+  entity_id: light.soffitlights
+  to: "off"
+action: 
+  - service: light.turn_off
+    entity_id: light.shopexteriorplugs

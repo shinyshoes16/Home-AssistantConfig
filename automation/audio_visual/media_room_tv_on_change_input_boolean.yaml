@@ -1,0 +1,10 @@
+alias: audio_visual media room tv on change input boolean
+initial_state: true
+trigger: 
+  - entity_id: media_player.media_room_tv
+    platform: state
+    to: "on"
+action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.media_room_media_power

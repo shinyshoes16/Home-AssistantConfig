@@ -1,0 +1,16 @@
+alias: lighting porch lights off manual
+# hide_entity: true
+initial_state: true
+trigger:
+  platform: state
+  entity_id: light.porchlights
+  to: "off"
+action: 
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.porchlightsonbymanual
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.porchlightsonbyautomation
+  - service: timer.cancel
+    entity_id: timer.porch_lights

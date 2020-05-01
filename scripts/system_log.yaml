@@ -1,0 +1,7 @@
+system_log:
+  alias: system_log
+  sequence:
+    - service: notify.loginfo
+      data_template:
+        message: "{{ message }}"
+    

@@ -1,0 +1,21 @@
+alias: laundry dryer timer elapsed
+# hide_entity: true
+# initial_state: true
+trigger: 
+  platform: event
+  event_type: timer.finished
+  event_data: 
+    entity_id: timer.dryer
+action: 
+  - service: script.speaktext
+    data:
+      message: "The clothes in the dryer have not been removed.  They need to be removed or the dreaded wrinkles will appear"
+  - condition: template
+    #checks to see if we should stop reminding after 15 minutes 30 seconds
+    value_template: "{{ (as_timestamp(now()) - as_timestamp(states.sensor.dryer.last_changed)) < 930 }}"
+  - service: script.debugout
+    data:
+      name: "Dryer Reminder"
+      message: "cancelled due to 15 minutes elapsing"
+  - service: timer.start
+    entity_id: timer.dryer

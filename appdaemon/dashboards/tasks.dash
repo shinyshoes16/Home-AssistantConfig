@@ -1,0 +1,162 @@
+#
+# Main arguments, all optional
+#
+title: Tasks
+widget_dimensions: [120, 120]
+widget_margins: [8, 8]
+columns: 6
+
+reload:
+  widget_type: reload
+  title: Reload
+  icon_active: mdi-refresh
+  icon_inactive: mdi-refresh
+  
+global_parameters:
+  use_comma: 0
+  precision: 1
+  use_hass_icon: 1
+  
+driveway_horn_suppress_time:
+  widget_type: input_select
+  entity: input_select.driveway_horn_suppression_time
+  title: "Suppress Driveway horn for:"
+  
+driveway_horn_suppress:
+  widget_type: mode
+  entity: input_select.driveway_horn_suppression_time
+  title: "Submit Horn Suppression"
+  script: script.disable_driveway_horn
+  
+enable_driveway_horn:
+  widget_type: script
+  entity: script.enable_driveway_horn
+  title: End Driveway Horn Suppression
+  icon_on: mdi-air-horn
+  icon_off: mdi-air-horn
+  
+weather:
+  widget_type: weather
+  units: "&deg;C"
+  title: Today
+  show_forecast: 1
+  prefer_icons: 1
+  sensors:
+    icon: sensor.dark_sky_icon
+
+driveway:
+  widget_type: camera
+  entity: camera.driveway
+  entity_picture: /api/camera_proxy/camera.driveway
+  refresh: 10
+  base_url: http://192.168.1.4:8123
+
+clock:
+  widget_type: clock
+  
+russound:
+  widget_type: media_player
+  entity: media_player.kitchen
+  title: Kitchen Russound
+  step: 1
+
+russound_power:
+  widget_type: switch
+  entity: media_player.kitchen
+  title: Russound Power
+
+moon:
+  widget_type: entitypicture
+  entity: sensor.moon_phase
+  title: Moon Phase
+  base_url: http://192.168.1.4:8123
+
+last_page:
+  widget_type: label
+  title: Last Page Content
+  entity: input_text.last_page
+  widget_style: "font-size: 50%"
+
+last_page_time:
+  widget_type: label
+  title: Last Page Content
+  entity: input_datetime.last_page_time
+  widget_style: "font-size: 50%"
+
+thermostat:
+  widget_type: climate
+  entity: climate.hallway_thermostat
+  title: Thermostat Control
+  units: "&deg;C"
+
+thermostat_state:
+  widget_type: sensor
+  entity: climate.hallway_thermostat
+  title: Thermostat State
+  
+big105:
+  widget_type: script
+  entity: script.set_kitchen_to_big105
+  title: Big 105
+  icon_on: mdi-music-note-eighth
+  icon_off: mdi-music-note-eighth
+  
+realcountry:
+  widget_type: script
+  entity: script.set_kitchen_to_real_country
+  title: Real Country
+  icon_on: mdi-cow
+  icon_off: mdi-cow
+
+thedrive:
+  widget_type: script
+  entity: script.set_kitchen_to_the_drive
+  title: 106.7 the Drive
+  icon_on: mdi-road-variant
+  icon_off: mdi-road-variant
+
+set_75:
+  widget_type: script
+  entity: script.set_ac_75
+  title: Set AC to 75
+  icon_on: fa-thermometer-1
+  icon_off: fa-thermometer-1
+
+set_78:
+  widget_type: script
+  entity: script.set_ac_78
+  title: Set AC to 78
+  icon_on: fa-thermometer-half
+  icon_off: fa-thermometer-half
+
+set_82:
+  widget_type: script
+  entity: script.set_ac_82
+  title: Set AC to 82
+  icon_on: fa-thermometer-full 
+  icon_off: fa-thermometer-full 
+
+lights:
+  widget_type: switch
+  entity: group.interior_lights
+  title: Interior Lights Toggle
+  icon_on: mdi-lightbulb-on
+  icon_off: mdi-lightbulb-on-outline
+  
+load_camera:
+    widget_type: navigate
+    title: Driveway Camera
+    icon_active: mdi-cctv
+    icon_inactive: mdi-cctv
+    url: /camera
+    args:
+      timeout: 10
+      return: kitchen
+    
+
+layout:
+  - clock(2x1), last_page(3x1), last_page_time
+  - driveway_horn_suppress_time, driveway_horn_suppress, enable_driveway_horn, reload
+  
+  
+  

@@ -1,0 +1,15 @@
+# Set Russound Zone Volume to Minimum Volume if OFF.
+alias: 'Russound OFF Connection Hack'
+initial_state: true
+trigger:
+  platform: time_pattern
+  minutes: "/3"
+condition:
+  - condition: state
+    entity_id: media_player.main_bathroom
+    state: 'off'
+action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id: media_player.main_bathroom
+      volume_level: '0.01'

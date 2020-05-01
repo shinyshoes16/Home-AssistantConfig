@@ -1,0 +1,8 @@
+test_example_play_bmtl:
+  alias: Play Bring Me To Life
+  sequence:
+  - data:
+      entity_id: media_player.mpd
+      media_content_id: local:track:bmtl.mp3
+      media_content_type: music
+    service: media_player.play_media

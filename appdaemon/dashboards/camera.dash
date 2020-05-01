@@ -1,0 +1,44 @@
+#
+# Main arguments, all optional
+#
+title: Camera
+widget_dimensions: [145, 119]
+widget_margins: [1, 1]
+columns: 7
+
+reload:
+  widget_type: reload
+  title: Reload
+  icon_active: fa-refresh
+  icon_inactive: fa-refresh
+
+global_parameters:
+  use_comma: 0
+  precision: 1
+  use_hass_icon: 1
+
+driveway:
+  widget_type: camera
+  entity: camera.driveway
+  entity_picture: /api/camera_proxy/camera.driveway
+  refresh: 10
+  base_url: http://192.168.1.4:8123
+
+clock:
+  widget_type: clock
+  
+  
+load_kitchen:
+    widget_type: navigate
+    title: Back to Kitchen
+    url: /kitchen
+    
+my_camera:
+  widget_type: camerastream
+  entity: camera.driveway
+  base_url: "http://192.168.1.4:8123"  
+  # e.g. "https://my_duck_dns_domain.duckdns.org:8123" or "http://192.168.1.20:8123"
+  log: 1  # optional. Will print some log info in the console for debugging purposes if set to 1.
+  
+layout:
+  - my_camera(7x5)

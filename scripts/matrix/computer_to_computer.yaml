@@ -1,0 +1,8 @@
+computer_to_computer: 
+  alias: matrix computer to computer
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.computer_matrix
+      source: Computer
+  

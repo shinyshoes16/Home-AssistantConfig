@@ -1,0 +1,6 @@
+test_diplay_driveway_cam:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: home/panel
+        payload: on

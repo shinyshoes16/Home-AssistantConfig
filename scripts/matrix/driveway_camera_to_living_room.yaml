@@ -1,0 +1,11 @@
+driveway_camera_to_living_room: 
+  alias: matrix driveway camera to living room
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.living_room_matrix
+      source: DrivewayCamera
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.livingroomreceiver
+  

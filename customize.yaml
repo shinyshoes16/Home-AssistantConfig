@@ -1,0 +1,10 @@
+person.doug:
+  entity_picture: /local/Doug192.png
+person.alisha:
+  entity_picture: /local/Alisha192.png
+device_tracker.sm_g965w:
+  entity_picture: /Local/Doug192.png
+device_tracker.sm_g960w:
+  entity_picture: /Local/Alisha192.png
+light.livingroomlight:
+  theme: green_example

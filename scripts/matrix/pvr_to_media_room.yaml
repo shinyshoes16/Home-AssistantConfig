@@ -1,0 +1,11 @@
+pvr_to_media_room: 
+  alias: matrix pvr to media room
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.media_room_matrix
+      source: PVR
+  - service: media_player.turn_on
+    data:
+      entity_id: media_player.media_room_tv
+  

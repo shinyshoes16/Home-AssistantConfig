@@ -1,0 +1,31 @@
+alias: christmas lights on by driveway sensor after dark
+#hide_entity: true
+initial_state: true
+trigger: 
+- entity_id: sensor.driveway_sensor
+  platform: state
+  to: Violated
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: timer.driveway_horn_suppressed
+      state: idle
+    - condition: template # Only between November 25 and January 10.
+      value_template: >
+        {% set n = now() %}
+        {{ ( n.month == 11 and ( 25 <= n.day )) or n.month == 12 or ( n.month == 1 and ( 1 <= n.day <= 10 )) }}
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sun.sun
+          state: 'below_horizon'
+action:
+  - service: light.turn_on
+    data: 
+      entity_id: group.christmas_lights
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.christmaslightsonbyautomation
+  - service: timer.start
+    entity_id: timer.christmas_lights

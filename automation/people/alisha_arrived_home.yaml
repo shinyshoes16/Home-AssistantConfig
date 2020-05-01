@@ -1,0 +1,15 @@
+alias: people alisha arrived home
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: person.alisha
+  to: home
+  for:
+    seconds: 5
+action:
+- service: script.disarmalarm
+- service: script.debugout
+  data: 
+    name: "people alisha arrived home"
+    message: "was triggered"

@@ -1,0 +1,17 @@
+alias: no interior lights during alarm
+#hide_entity: true
+initial_state: true
+trigger: 
+- entity_id: group.interior_lights
+  platform: state
+  to: "on"
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: alarm_control_panel.area001
+      state: "triggered"
+action:
+  - service: light.turn_off
+    data: 
+      entity_id: group.interior_lights

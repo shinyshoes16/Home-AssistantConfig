@@ -1,0 +1,18 @@
+alias: driveway sensor triggered ring horn
+#hide_entity: true
+initial_state: true
+trigger: 
+- entity_id: sensor.driveway_sensor
+  platform: state
+  to: Violated
+condition:
+  condition: and
+  conditions:
+  - condition: state
+    entity_id: timer.driveway_horn_suppressed
+    state: idle
+  - condition: state
+    entity_id: timer.driveway_horn_suppressed_manual
+    state: idle
+action:
+- service: script.ringhorn

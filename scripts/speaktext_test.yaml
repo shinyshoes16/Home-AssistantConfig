@@ -1,0 +1,7 @@
+speaktext_test:
+  sequence:
+  - service: script.speaktext
+    data:
+      message: "This is a test of the Tepfer emergency broadcast system for the Tepfur house.  If this was not a test, Instructions would follow this notification."
+      
+

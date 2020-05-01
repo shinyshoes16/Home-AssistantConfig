@@ -1,0 +1,14 @@
+alias: people alisha home people status
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: person.alisha
+  to: home
+action:
+- service: notify.dougemail
+  data_template:
+    title: Alisha Status at change to home at {{now().strftime("%H:%M:%S-%Y/%m/%d")}}
+    message: "Alisha's Status changed to Home:
+Google is {{ states.device_tracker.google_maps_111315891950876531617.state}} and was updated: {{ states.device_tracker.google_maps_111315891950876531617.last_updated }} and last seen {{ states.device_tracker.google_maps_111315891950876531617.attributes.last_seen }}
+Network is {{ states.device_tracker.luci_alisha_s9.state }} and was updated: {{ states.device_tracker.luci_alisha_s9.last_updated }}"

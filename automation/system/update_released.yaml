@@ -1,0 +1,13 @@
+alias: system update released
+# hide_entity: true
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: binary_sensor.updater
+    from: 'off'
+    to: 'on'
+action:
+- service: notify.dougemail
+  data:
+    title: "Home Assistant version {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+    message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."

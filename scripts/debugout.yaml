@@ -1,0 +1,12 @@
+debugout:
+  alias: debugout
+  sequence:
+    - service: logbook.log
+      data_template:
+        name: "{{ name }}"
+        message: "{{ message }}"
+#    - service: notify.filelog
+#      data_template: 
+#        message: >
+#          {{ name }}: {{ message }}
+    

@@ -1,0 +1,21 @@
+alias: laundry dryer stopped
+# hide_entity: true
+# initial_state: true
+trigger:
+  platform: state
+  entity_id: sensor.dryer
+  to: 'Normal'
+  from: 'Violated'
+  for:
+    seconds: 20
+action:
+  - service: script.speaktext
+    data: 
+      message: "The Clothes Dryer has completed its cycle."
+  - condition: state
+    entity_id: sensor.laundry_room_dr
+    state: 'Normal'
+    for:
+      seconds: 30
+  - service: timer.start
+    entity_id: timer.dryer

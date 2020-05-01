@@ -1,0 +1,13 @@
+alias: alarm lights off after armed for 1 minute
+# hide_entity: true
+initial_state: true
+trigger:
+- entity_id: alarm_control_panel.area_001
+  platform: state
+  to: "armed_away"
+  for:
+    minutes: 1
+action: 
+  - service: light.turn_off
+    entity_id: group.interior_lights
+    

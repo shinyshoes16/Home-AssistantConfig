@@ -1,0 +1,24 @@
+alias: people family away not armed
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: group.family
+  to: not_home
+condition:
+  - condition: state
+    entity_id: alarm_control_panel.area_001
+    state: "disarmed"
+action:
+  - service: notify.dougpush_dougs7t
+    data:
+      message: Family Away Alarm not armed
+      data:
+        tag: alarm-not-armed-notification
+        actions:
+          - action: arm_alarm
+            title: Arm Now
+  - service: notify.dougemail
+    data:
+      title: Alarm not Armed
+      message: Family is away and the alarm is not armed

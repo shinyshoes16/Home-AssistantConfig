@@ -1,0 +1,15 @@
+alias: porch lights timer expired
+# hide_entity: true
+# initial_state: true
+trigger: 
+  platform: event
+  event_type: timer.finished
+  event_data: 
+    entity_id: timer.porch_lights
+action: 
+  - service: light.turn_off
+    data: 
+      entity_id: group.exterior_lights
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.porchlightsonbyautomation

@@ -1,0 +1,12 @@
+alias: devices hot water tank
+# hide_entity: true
+initial_state: true
+trigger:
+- platform: state
+  entity_id: sensor.hot_water_tank
+  to: Violated
+action:
+- service: notify.dougemail
+  data:
+    title: Hot Water Tank has issues
+    message: Light lit up at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}

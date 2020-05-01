@@ -1,0 +1,15 @@
+alias: alarm status arming announce countdown
+# hide_entity: true
+initial_state: true
+trigger:
+- entity_id: alarm_control_panel.area_001
+  platform: state
+  to: "arming"
+action:
+  - service: script.speaktext
+    data: 
+      message: "Arming Alarm.  4 Minutes to Exit."
+      display_title: "Arming Alarm"
+      display_message: "4 Minutes to Exit"
+  - service: timer.start
+    entity_id: timer.alarm

@@ -1,0 +1,14 @@
+alias: people doug home people status
+# hide_entity: true
+initial_state: false
+trigger:
+- platform: state
+  entity_id: person.doug
+  to: home
+action:
+- service: notify.dougemail
+  data_template:
+    title: Doug Status at change to home at {{now().strftime("%H:%M:%S-%Y/%m/%d")}}
+    message: "Doug's Status changed to Home:
+Google is {{ states.device_tracker.google_maps_102903846854077092028.state}} and was updated: {{ states.device_tracker.google_maps_102903846854077092028.last_updated }} and last seen {{ states.device_tracker.google_maps_102903846854077092028.attributes.last_seen }}
+Network is {{ states.device_tracker.luci_dougs_s9_plus.state }} and was updated: {{ states.device_tracker.luci_dougs_s9_plus.last_updated }}"

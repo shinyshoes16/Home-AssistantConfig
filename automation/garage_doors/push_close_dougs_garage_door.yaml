@@ -1,0 +1,11 @@
+alias: "push notification to close doug's garage door"
+trigger:
+  platform: event
+  event_type: html5_notification.clicked
+  event_data:
+    action: open_dougs_garage_door
+action:
+  - service: script.debugout
+    data: 
+      name: "Open Dougs's Garage Door"
+      message: "by html5 push"

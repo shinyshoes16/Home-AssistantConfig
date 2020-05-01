@@ -1,0 +1,12 @@
+alias: door openings ammunition safe
+# hide_entity: true
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: sensor.ammunitionsafe
+    to: Violated
+action:
+  - service: notify.dougemail
+    data:
+      title: Ammunition Safe Opened
+      message: Ammunition Opened at {{now().strftime("%H:%M:%S-%Y/%m/%d")}} 

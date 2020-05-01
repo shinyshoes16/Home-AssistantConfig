@@ -1,0 +1,9 @@
+alias: system turn on driveway horn
+initial_state: true
+trigger: 
+  platform: time
+  at: '01:00:00'
+action:
+  - service: homeassistant.turn_on
+    data:
+      entity_id: automation.driveway_sensor_triggered

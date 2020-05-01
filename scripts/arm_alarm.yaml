@@ -1,0 +1,7 @@
+armalarm:
+  alias: Arm Alarm
+  sequence:
+  - data:
+      entity_id: alarm_control_panel.area_001
+      code: !secret alarm_code
+    service: alarm_control_panel.alarm_arm_away

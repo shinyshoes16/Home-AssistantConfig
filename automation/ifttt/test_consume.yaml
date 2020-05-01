@@ -1,0 +1,28 @@
+alias: ifttt test consume
+# hide_entity: true
+initial_state: true
+trigger:
+  platform: event
+  event_type: ifttt_webhook_received
+  event_data:
+    action: call_service
+action:
+- service: script.debugout
+  data: 
+    name: "An IFTTT webhook trigger was received"
+    message: "was recieved"
+#  - service: script.disarmalarm
+#  - service: notify.dougemail
+#    data:
+#      title: "IFTTT Doug Arrived Home "
+#      message: "IFTTT Doug Arrived Home"
+#  - service: notify.dougpush
+#    data:
+#      message: "Welcome home, open garage?"
+#      target: "dougs_s9"
+#      data:
+#        tag: 'doug-arrived-home-garage'
+#        actions:
+#          - action: "open_dougs_garage_door"
+#            title: Open door
+#            icon: mdi:garage

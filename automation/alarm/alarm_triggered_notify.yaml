@@ -1,0 +1,32 @@
+alias: alarm triggered notify
+# hide_entity: true
+initial_state: true
+trigger:
+- entity_id: alarm_control_panel.area_001
+  platform: state
+  to: "triggered"
+action:
+  - service: notify.dougpush
+    data:
+      message: The Alarm is Going Off!!
+      data:
+        tag: alarm-triggered-notification
+        actions:
+          - action: disarm
+            title: Disarm
+  - service: notify.dougemail
+    data_template:
+      title: The Alarm is Going Off!!
+      message: Alarm was triggered at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}  
+  - service: notify.dougtext
+    data: 
+      message: The Alarm is going off!!! 
+  - service: notify.alishatext
+    data: 
+      message: The Alarm is going off!!!
+  - service: notify.alishaemail
+    data_template:
+      title: The Alarm is Going Off!!
+      message: Alarm was triggered at {{now().strftime("%I:%M:%S-%Y/%m/%d")}}
+  - service: timer.start
+    entity_id: timer.alarm_notification_repeat

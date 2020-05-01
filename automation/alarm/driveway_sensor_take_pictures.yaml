@@ -1,0 +1,12 @@
+alias: driveway_sensor_take_pictures
+#hide_entity: true
+initial_state: true
+trigger: 
+- entity_id: sensor.driveway_sensor
+  platform: state
+  to: Violated
+action:
+#trigger Camera pictures
+- service: switch.turn_on
+  data: 
+    entity_id: switch.camera_trigger
