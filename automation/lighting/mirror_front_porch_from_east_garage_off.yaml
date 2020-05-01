@@ -5,6 +5,7 @@ trigger:
   platform: state
   entity_id: light.garageeastexteriorlight
   to: "off"
+  for: 00:00:10
 action: 
   - service: light.turn_off
     entity_id: light.porchlights
